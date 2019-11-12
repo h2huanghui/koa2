@@ -5,30 +5,30 @@ app.use(bodyParser())
 
 app.use(async (ctx) => {
     //请求方式:GET,显示表单让用户填写
-    // if (ctx.url === '/' && ctx.method === 'GET') {
-    //     let html = `
-    //         <h1>Koa2 request post demo</h1>
-    //         <form action="/" method="POST">
-    //             <p>userName</p>
-    //             <input name="userName"/> <br/>
-    //             <p>age</p>
-    //             <input name="age"/> <br/>
-    //             <p>webSite</p>
-    //             <input name="webSite"/> <br/>
-    //             <button type="submit">submit</button>
-    //         </form>
-    //     `
-    //     ctx.body = html
-    //     //请求方式:POST
-    // } else if (ctx.url === '/' && ctx.method === 'POST') {
-    //     //直接用ctx.request.body进行获取POST请求参数,中间件自动给我们做了解析
-    //     let postData = ctx.request.body
-    //     ctx.body = postData
-    //     // let postData = await parsePostData(ctx)
-    //     // ctx.body = postData //输出:userName=HH&age=44&webSite=555
-    // } else {
-    //     ctx.body = '<h1>404</h1>'
-    // }
+    if (ctx.url === '/' && ctx.method === 'GET') {
+        let html = `
+            <h1>Koa2 request post demo</h1>
+            <form action="/" method="POST">
+                <p>userName</p>
+                <input name="userName"/> <br/>
+                <p>age</p>
+                <input name="age"/> <br/>
+                <p>webSite</p>
+                <input name="webSite"/> <br/>
+                <button type="submit">submit</button>
+            </form>
+        `
+        ctx.body = html
+        //请求方式:POST
+    } else if (ctx.url === '/' && ctx.method === 'POST') {
+        //直接用ctx.request.body进行获取POST请求参数,中间件自动给我们做了解析
+        let postData = ctx.request.body
+        ctx.body = postData
+        // let postData = await parsePostData(ctx)
+        // ctx.body = postData //输出:userName=HH&age=44&webSite=555
+    } else {
+        ctx.body = '<h1>404</h1>'
+    }
 
     //写入cookie
     if (ctx.url === '/index') {
